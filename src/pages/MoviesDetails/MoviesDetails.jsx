@@ -34,36 +34,15 @@ const MoviesDetails = () => {
 
   useEffect(() => {
     getMovieById(movieId)
-      .then(
-        ({
-          id,
-          poster_path,
-          original_title,
-          overview,
-          release_date,
-          vote_average,
-          genres,
-        }) => {
-          setMovie({
-            id,
-            poster_path,
-            original_title,
-            overview,
-            release_date,
-            vote_average,
-            genres,
-          });
-        }
-      )
+      .then((movie) => setMovie(movie))
       .catch(() =>
         toast.error(`Whoops, something went wrong! Please try again later!`)
       );
   }, [movieId, setMovie]);
-
   return (
     <main>
       <BtnGoBack to={goBack}>Go back</BtnGoBack>
-      <MoviesCard>
+      <MoviesCard key={id}>
         <CardImage
           src={
             poster_path

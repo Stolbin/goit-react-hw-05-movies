@@ -1,3 +1,4 @@
+import { PropTypes } from "prop-types";
 import axios from "axios";
 const API_KEY = "af36a8e543b2cdf1ea4b27ac643d9907";
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
@@ -6,20 +7,37 @@ axios.defaults.params = {
 };
 
 export const getTrendMovies = async () => {
-  const { data } = await axios.get("trending/movie/day");
+  const { data } = await axios.get(`trending/movie/day?api_key=${API_KEY}`);
   return data;
 };
 
 export const getMovieById = async (id) => {
-  const { data } = await axios.get(`/movie/${id}`);
+  const { data } = await axios.get(
+    `/movie/${id}?api_key=${API_KEY}&language=en-US`
+  );
   return data;
 };
 
 export const getMovieByName = async (query) => {
-  const { data } = await axios.get(`/search/movie`, {
-    params: {
-      query,
-    },
-  });
+  const { data } = await axios.get(
+    `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
+    {
+      params: {
+        query,
+      },
+    }
+  );
   return data;
+};
+
+getTrendMovies.propTypes = {
+  query: PropTypes.string.isRequired,
+};
+
+getMovieById.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+
+getMovieByName.propTypes = {
+  query: PropTypes.number.isRequired,
 };
