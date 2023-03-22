@@ -12,21 +12,16 @@ export const getTrendMovies = async () => {
 };
 
 export const getMovieById = async (id) => {
-  const { data } = await axios.get(
-    `/movie/${id}?api_key=${API_KEY}&language=en-US`
-  );
+  const { data } = await axios.get(`/movie/${id}?api_key=${API_KEY}`);
   return data;
 };
 
 export const getMovieByName = async (query) => {
-  const { data } = await axios.get(
-    `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
-    {
-      params: {
-        query,
-      },
-    }
-  );
+  const { data } = await axios.get(`search/movie?api_key=${API_KEY}`, {
+    params: {
+      query,
+    },
+  });
   return data;
 };
 
