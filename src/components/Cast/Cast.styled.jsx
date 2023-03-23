@@ -17,12 +17,12 @@ export const CastImage = styled.img`
 `;
 
 export const CastName = styled.p`
-  font-size: ${(props) => props.theme.fontSizes.xs};
+  font-size: 16px;
   margin: 0;
   text-align: center;
 `;
 
 export const Message = styled.p`
-  font-size: ${(props) => props.theme.fontSizes.medium};
-  color: ${(props) => props.theme.colors.primary};
+  font-size: 16px;
+  color: black};
 `;
