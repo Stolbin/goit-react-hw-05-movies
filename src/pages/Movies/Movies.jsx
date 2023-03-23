@@ -1,15 +1,15 @@
+import { Suspense, useEffect, useState } from "react";
+import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
+import { getMovieByName } from "api/moviesAPI";
+import { ToastContainer, toast } from "react-toastify";
+import SearchBar from "components/Searchbar/SearchBar";
 import {
   Container,
   MoviesCard,
   CardImage,
   CardName,
 } from "components/MoviesList/MoviesList.styled";
-import SearchBar from "components/Searchbar/SearchBar";
-import { getMovieByName } from "api/moviesAPI";
-import { Suspense, useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
 import notFoundPoster from "images/noFound/noImage.png";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Movies = () => {

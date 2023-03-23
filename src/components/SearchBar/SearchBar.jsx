@@ -9,11 +9,13 @@ const SearchBar = ({ onSubmit }) => {
     const { value } = e.currentTarget;
     setQuery(value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(query);
     setQuery("");
   };
+
   return (
     <SearchForm onSubmit={handleSubmit}>
       <FormInput
@@ -29,8 +31,6 @@ const SearchBar = ({ onSubmit }) => {
   );
 };
 
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+SearchBar.propTypes = { onSubmit: PropTypes.func.isRequired };
 
 export default SearchBar;
