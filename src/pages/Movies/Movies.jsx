@@ -2,7 +2,7 @@ import { Suspense, useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
 import { getMovieByName } from "api/moviesAPI";
 import { ToastContainer, toast } from "react-toastify";
-import SearchBar from "components/Searchbar";
+import SearchBar from "components/Searchbar/SearchBar";
 import {
   Container,
   MoviesCard,
