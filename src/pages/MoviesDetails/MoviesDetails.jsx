@@ -18,10 +18,19 @@ import "react-toastify/dist/ReactToastify.css";
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
-  const { movie, setMovie } = useState({});
+  const { movie, setMovie } = useState(null);
   const location = useLocation();
   const goBack = location?.state?.from ?? "/";
 
+  useEffect(() => {
+    getMovieById(movieId)
+      .then((movie) => setMovie(movie))
+      .catch(() =>
+        toast.error(`Whoops, something went wrong! Please try again later!`)
+      );
+  }, [movieId, setMovie]);
+
+  if (!movie) return;
   const {
     id,
     poster_path,
@@ -32,13 +41,6 @@ const MoviesDetails = () => {
     genres,
   } = movie;
 
-  useEffect(() => {
-    getMovieById(movieId)
-      .then((movie) => setMovie(movie))
-      .catch(() =>
-        toast.error(`Whoops, something went wrong! Please try again later!`)
-      );
-  }, [movieId, setMovie]);
   return (
     <main>
       <BtnGoBack to={goBack}>Go back</BtnGoBack>

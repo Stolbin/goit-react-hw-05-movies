@@ -4,7 +4,7 @@ import {
   CardImage,
   CardName,
 } from "components/MoviesList/MoviesList.styled";
-import SearchBar from "components/SearchBar";
+import SearchBar from "components/Searchbar/SearchBar";
 import { getMovieByName } from "api/moviesAPI";
 import { Suspense, useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
