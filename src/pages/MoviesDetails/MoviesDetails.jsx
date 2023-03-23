@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
-  const { movie, setMovie } = useState([null]);
+  const { movie, setMovie } = useState[null];
   const location = useLocation();
   const goBack = location?.state?.from ?? "/";
 
@@ -27,9 +27,9 @@ const MoviesDetails = () => {
       .catch(() =>
         toast.error(`Whoops, something went wrong! Please try again later!`)
       );
-  }, [movieId, setMovie]);
+  }, [movieId]);
 
-  if (!movie) return;
+  // if (!movie) return;
   const {
     id,
     poster_path,
