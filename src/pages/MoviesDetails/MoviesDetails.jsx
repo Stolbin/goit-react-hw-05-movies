@@ -29,7 +29,7 @@ const MoviesDetails = () => {
       );
   }, [movieId]);
 
-  // if (!movie) return;
+  if (!movie) return;
   const {
     id,
     poster_path,
