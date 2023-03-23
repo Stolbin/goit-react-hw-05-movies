@@ -24,7 +24,7 @@ const MoviesDetails = () => {
 
   useEffect(() => {
     getMovieById(movieId)
-      .then((movie) => setMovie(movie))
+      .then(({ movie }) => setMovie({ movie }))
       .catch(() =>
         toast.error(`Whoops, something went wrong! Please try again later!`)
       );

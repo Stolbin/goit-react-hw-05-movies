@@ -11,7 +11,6 @@ const SearchBar = ({ onSubmit }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onSubmit(query);
     setQuery("");
   };
