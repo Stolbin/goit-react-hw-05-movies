@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export const MainContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 16px 20px 16px;
 `;
 
 export const Header = styled.header`
@@ -12,27 +12,30 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 8px 0;
+  margin-top: 5px;
+  padding: 0 0 8px 0;
   margin-bottom: 16px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 
   > nav {
     display: flex;
+    gap: 10%;
   }
 `;
 
-export const MainLink = styled(NavLink)`
+export const NavItem = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
   color: black;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 700;
 
   &:hover {
-    color: #fff;
+    color: #708090;
   }
 
   &.active {
-    color: #f64f59;
+    color: #ff4500;
   }
 `;

@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
 export const CastList = styled.ul`
+  padding: 10px 0 20px 0;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 `;
 
@@ -11,12 +12,14 @@ export const CastItem = styled.li`
 `;
 
 export const CastImage = styled.img`
+  border-radius: 3px;
   width: 100%;
-  height: 120px;
+  height: auto;
   border-radius: 5px;
 `;
 
 export const CastName = styled.p`
+  padding-top: 5px;
   font-size: 16px;
   margin: 0;
   text-align: center;

@@ -32,7 +32,7 @@ export const GlobalStyles = css`
   img {
     display: block;
     max-width: 100%;
-    height: auto;
+    height: 300px;
   }
   button {
     padding: 0;

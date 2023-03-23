@@ -8,6 +8,7 @@ import {
   MoviesDetailsInfoItem,
   MoviesDetailsLink,
   MoviesDetailsInfoText,
+  Icon,
 } from "./MoviesDetails.styled";
 import { getMovieById } from "api/moviesAPI";
 import { useEffect, useState, Suspense } from "react";
@@ -44,7 +45,9 @@ const MoviesDetails = () => {
 
   return (
     <main>
-      <BtnGoBack to={goBack}>Go back</BtnGoBack>
+      <BtnGoBack to={goBack}>
+        <Icon />
+      </BtnGoBack>
       <MoviesCard key={id}>
         <CardImage
           src={
@@ -61,7 +64,7 @@ const MoviesDetails = () => {
           <p>User scores: {Math.ceil(vote_average * 10)}%</p>
           <h3>Overview</h3>
           <p>{overview}</p>
-          <h4>Genres</h4>
+          <h3>Genres</h3>
           <p>{genres?.map((genre) => genre.name).join(", ")}</p>
         </CardInfo>
       </MoviesCard>
@@ -72,7 +75,7 @@ const MoviesDetails = () => {
             state={{ from: location?.state?.from }}
             to={generatePath("cast", { id })}
           >
-            Cast
+            - Cast
           </MoviesDetailsLink>
         </MoviesDetailsInfoItem>
         <MoviesDetailsInfoItem>
@@ -80,7 +83,7 @@ const MoviesDetails = () => {
             state={{ from: location?.state?.from }}
             to={generatePath("reviews", { id })}
           >
-            Reviews
+            - Reviews
           </MoviesDetailsLink>
         </MoviesDetailsInfoItem>
       </MoviesDetailsInfo>

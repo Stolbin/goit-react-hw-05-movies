@@ -38,7 +38,7 @@ const Movies = () => {
     <main>
       <SearchBar onSubmit={handleFormSubmit} />
       <Container>
-        {movies.map(({ id, original_title, poster_path }) => (
+        {movies.map(({ id, title, poster_path }) => (
           <MoviesCard key={id}>
             <Link state={{ from: location }} to={`${id}`}>
               <CardImage
@@ -47,9 +47,9 @@ const Movies = () => {
                     ? `https://image.tmdb.org/t/p/w342/${poster_path}`
                     : `${notFoundPoster}`
                 }
-                alt={original_title}
+                alt={title}
               />
-              <CardName>{original_title}</CardName>
+              <CardName>{title}</CardName>
             </Link>
           </MoviesCard>
         ))}
