@@ -12,43 +12,22 @@ import {
 import { getMovieById } from "api/moviesAPI";
 import { useEffect, useState, Suspense } from "react";
 import notFoundImage from "images/noFound/noImage.png";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
-  const { movie, setMovie } = useState[null];
+  const { movie, setMovie } = useState([null]);
   const location = useLocation();
   const goBack = location?.state?.from ?? "/";
 
   useEffect(() => {
     getMovieById(movieId)
-      .then(
-        ({
-          id,
-          poster_path,
-          original_title,
-          overview,
-          release_date,
-          vote_average,
-          genres,
-        }) => {
-          setMovie({
-            id,
-            poster_path,
-            original_title,
-            overview,
-            release_date,
-            vote_average,
-            genres,
-          });
-        }
-      )
+      .then((movie) => setMovie(movie))
       .catch(() =>
         toast.error(`Whoops, something went wrong! Please try again later!`)
       );
-  }, [movieId]);
+  }, [movieId, setMovie]);
 
   if (!movie) return;
   const {
