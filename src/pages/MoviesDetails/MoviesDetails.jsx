@@ -35,7 +35,7 @@ const MoviesDetails = () => {
   const {
     id,
     poster_path,
-    original_title,
+    title,
     overview,
     release_date,
     vote_average,
@@ -52,11 +52,11 @@ const MoviesDetails = () => {
               ? `https://image.tmdb.org/t/p/w342/${poster_path}`
               : `${notFoundImage}`
           }
-          alt={original_title}
+          alt={title}
         />
         <CardInfo>
           <h2>
-            {original_title} ({new Date(release_date).getFullYear()})
+            {title} ({new Date(release_date).getFullYear()})
           </h2>
           <p>User scores: {Math.ceil(vote_average * 10)}%</p>
           <h3>Overview</h3>

@@ -20,7 +20,6 @@ export const getMovieByName = async (query) => {
   const { data } = await axios.get(`search/movie?api_key=${API_KEY}`, {
     params: {
       query,
-      language: "en-US",
     },
   });
   return data;
