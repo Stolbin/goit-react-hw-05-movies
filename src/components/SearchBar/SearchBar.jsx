@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SearchForm, FormButton, FormInput, Icon } from "./SearchBar.styled";
 import PropTypes from "prop-types";
 
-const SearchBar = ({ onSubmit }) => {
+export const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
 
   const handleChange = (e) => {
