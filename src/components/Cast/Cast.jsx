@@ -1,7 +1,7 @@
 import { getMovieById } from "api/moviesAPI";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import notFoundPhotoProfile from "images/noFound/noAvatar.png";
+import notFoundPhotoProfile from "images/noFound/noPhoto.jpg";
 import {
   CardImegeBox,
   CastImage,

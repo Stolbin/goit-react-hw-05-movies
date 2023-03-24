@@ -14,9 +14,9 @@ export const CastItem = styled.li`
 export const CardImegeBox = styled.div`
   position: relative;
   border-radius: 5px;
-  background: #dcdcdc;
+  background: #fff;
   width: 100px;
-  height: 135px;
+  height: 150px;
 `;
 
 export const CastImage = styled.img`
