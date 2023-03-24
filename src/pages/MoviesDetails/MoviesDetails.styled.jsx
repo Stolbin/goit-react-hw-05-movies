@@ -20,7 +20,16 @@ export const MoviesDetailsInfo = styled.ul`
   justify-content: space-between;
   gap: 15px;
 `;
-export const MoviesDetailsInfoText = styled.p``;
+export const GenresTitle = styled.p`
+  font-style: italic;
+  font-weight: 600;
+`;
+export const MoviesDetailsInfoText = styled.p`
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  color: black;
+`;
 export const MoviesDetailsInfoItem = styled.li``;
 export const MoviesDetailsLink = styled(NavLink)`
   font-family: "Raleway", sans-serif;

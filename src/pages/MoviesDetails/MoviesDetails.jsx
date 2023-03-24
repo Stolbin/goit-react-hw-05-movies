@@ -3,6 +3,7 @@ import {
   MoviesCard,
   BtnGoBack,
   MoviesDetailsInfo,
+  GenresTitle,
   CardImage,
   CardInfo,
   MoviesDetailsInfoItem,
@@ -11,6 +12,7 @@ import {
   Icon,
 } from "./MoviesDetails.styled";
 import { getMovieById } from "api/moviesAPI";
+import Loader from "components/Loader";
 import { useEffect, useState, Suspense } from "react";
 import notFoundImage from "images/noFound/noImage.png";
 import { ToastContainer, toast } from "react-toastify";
@@ -19,13 +21,16 @@ import "react-toastify/dist/ReactToastify.css";
 const MoviesDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const goBack = location?.state?.from ?? "/";
 
   useEffect(() => {
+    setIsLoading(true);
     getMovieById(movieId)
       .then((movie) => {
         setMovie(movie);
+        setIsLoading(false);
       })
       .catch(() =>
         toast.error(`Whoops, something went wrong! Please try again later!`)
@@ -45,6 +50,7 @@ const MoviesDetails = () => {
 
   return (
     <main>
+      {isLoading && <Loader />}
       <BtnGoBack to={goBack}>
         <Icon />
       </BtnGoBack>
@@ -65,7 +71,9 @@ const MoviesDetails = () => {
           <h3>Overview</h3>
           <p>{overview}</p>
           <h3>Genres</h3>
-          <p>{genres?.map((genre) => genre.name).join(", ")}</p>
+          <GenresTitle>
+            {genres?.map((genre) => genre.name).join(", ")}
+          </GenresTitle>
         </CardInfo>
       </MoviesCard>
       <MoviesDetailsInfo>

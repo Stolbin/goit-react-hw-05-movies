@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import notFoundPhotoProfile from "images/noFound/noAvatar.png";
 import {
+  CardImegeBox,
   CastImage,
   CastItem,
   CastList,
   CastName,
+  CharactertName,
   Message,
 } from "./Cast.styled";
+import Loader from "components/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,10 +21,13 @@ const anApologyMessage =
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true);
     getMovieById(`${movieId}/credits`)
       .then(({ cast }) => {
         setCast(cast);
+        setIsLoading(false);
       })
       .catch(() =>
         toast.error(`Whoops, something went wrong! Please try again later!`)
@@ -29,20 +35,22 @@ const Cast = () => {
   }, [movieId]);
   return (
     <CastList>
+      {isLoading && <Loader />}
       {cast?.length > 0 ? (
         cast.map(({ character, credit_id, name, profile_path }) => (
           <CastItem key={credit_id}>
-            <CastImage
-              src={
-                profile_path
-                  ? `https://image.tmdb.org/t/p/w200/${profile_path}`
-                  : `${notFoundPhotoProfile}`
-              }
-              alt={name}
-            />
-            <CastName>
-              {name} ({character})
-            </CastName>
+            <CardImegeBox>
+              <CastImage
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w200/${profile_path}`
+                    : `${notFoundPhotoProfile}`
+                }
+                alt={name}
+              />
+            </CardImegeBox>
+            <CastName>{name}</CastName>
+            <CharactertName>{character}</CharactertName>
           </CastItem>
         ))
       ) : (

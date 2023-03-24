@@ -9,6 +9,7 @@ import {
   CardImage,
   CardName,
 } from "components/MoviesList/MoviesList.styled";
+import Loader from "components/Loader";
 import notFoundPoster from "images/noFound/noImage.png";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -16,12 +17,15 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get("name") ?? "";
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
+    setIsLoading(true);
     getMovieByName(movieName)
       .then(({ results }) => {
         setMovies([...results]);
+        setIsLoading(false);
       })
       .catch(() =>
         toast.error(`Whoops, something went wrong! Please try again later!`)
@@ -37,6 +41,7 @@ const Movies = () => {
   return (
     <main>
       <SearchBar onSubmit={handleFormSubmit} />
+      {isLoading && <Loader />}
       <Container>
         {movies.map(({ id, title, poster_path }) => (
           <MoviesCard key={id}>
