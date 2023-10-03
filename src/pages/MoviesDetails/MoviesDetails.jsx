@@ -13,7 +13,7 @@ import {
 } from "./MoviesDetails.styled";
 import { getMovieById } from "api/moviesAPI";
 import Loader from "components/Loader";
-import { useEffect, useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import notFoundImage from "images/noFound/noImage.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
