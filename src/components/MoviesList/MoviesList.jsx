@@ -3,6 +3,7 @@ import {
   Container,
   MoviesCard,
   CardImage,
+  CardNameBox,
   CardName,
 } from "./MoviesList.styled";
 import notFoundPoster from "images/noFound/noImage.png";
@@ -23,7 +24,9 @@ const MoviesList = ({ movies }) => {
               }
               alt={title}
             />
-            <CardName>{title}</CardName>
+            <CardNameBox>
+              <CardName>{title}</CardName>
+            </CardNameBox>
           </Link>
         </MoviesCard>
       ))}

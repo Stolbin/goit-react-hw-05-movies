@@ -7,6 +7,7 @@ import {
   Container,
   MoviesCard,
   CardImage,
+  CardNameBox,
   CardName,
 } from "components/MoviesList/MoviesList.styled";
 import Loader from "components/Loader";
@@ -54,7 +55,9 @@ const Movies = () => {
                 }
                 alt={title}
               />
-              <CardName>{title}</CardName>
+              <CardNameBox>
+                <CardName>{title}</CardName>
+              </CardNameBox>
             </Link>
           </MoviesCard>
         ))}
