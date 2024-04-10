@@ -89,9 +89,9 @@ const MoviesDetails = () => {
             {genres?.map((genre) => genre.name).join(", ")}
           </GenresTitle>
         </CardInfo>
-      </MoviesCard>
+      </MoviesCard>{" "}
+      <MoviesDetailsInfoText>Additional information:</MoviesDetailsInfoText>
       <MoviesDetailsInfo>
-        <MoviesDetailsInfoText>Additional information:</MoviesDetailsInfoText>
         <MoviesDetailsInfoItem>
           <MoviesDetailsLink
             state={{ goBack }}

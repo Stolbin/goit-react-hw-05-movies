@@ -76,6 +76,12 @@ export const CardImage = styled.img`
   margin-bottom: 15px;
 `;
 export const CardInfo = styled.div``;
+export const MoviesDetailsInfoText = styled.p`
+  font-size: 19px;
+  font-weight: 700;
+  color: black;
+  margin: 20px 0 20px 0;
+`;
 export const MoviesDetailsInfo = styled.ul`
   display: flex;
   flex-direction: row;
@@ -86,12 +92,6 @@ export const MoviesDetailsInfo = styled.ul`
 export const GenresTitle = styled.p`
   font-style: italic;
   font-weight: 600;
-`;
-export const MoviesDetailsInfoText = styled.p`
-  font-size: 18px;
-  font-weight: 600;
-  padding: 10px;
-  color: black;
 `;
 export const MoviesDetailsInfoItem = styled.button`
   width: 150px;
