@@ -11,7 +11,7 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var API_KEY = "597053772adbd1ada65fc1b95f62fa4e";
+var API_KEY = "1c371b02c7ab52709deaac4809871490";
 _axios["default"].defaults.baseURL = "https://api.themoviedb.org/3/";
 _axios["default"].defaults.params = {
   api_key: API_KEY

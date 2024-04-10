@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 import axios from "axios";
-const API_KEY = "597053772adbd1ada65fc1b95f62fa4e";
+const API_KEY = "1c371b02c7ab52709deaac4809871490";
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 axios.defaults.params = {
   api_key: API_KEY,
